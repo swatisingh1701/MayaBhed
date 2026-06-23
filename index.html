@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MayaBhed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Ambient background layers -->
+  <div class="bg-orb orb-one"></div>
+  <div class="bg-orb orb-two"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Sticky navbar -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">MayaBhed</a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- Hero section -->
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow"><i class="fa-solid fa-shield-halved"></i> AI misinformation analysis</span>
+          <h1>MayaBhed</h1>
+          <p class="tagline">Unmask the Illusion.</p>
+          <p class="description">
+            Analyze headlines, articles, social media posts, and viral claims to uncover misinformation and understand why content may be misleading.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#analyzer">Analyze Now</a>
+            <a class="btn btn-secondary" href="#features">Learn More</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-metric">
+            <span>Signal clarity</span>
+            <strong>Deep context. Clean verdicts.</strong>
+          </div>
+          <div class="hero-preview">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Analyzer section -->
+    <section id="analyzer" class="section analyzer-section">
+      <div class="container analyzer-wrap">
+        <div class="section-heading">
+          <span class="eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i> Analyzer</span>
+          <h2>Paste content, get a structured read.</h2>
+          <p>Built for fast review of claims, tone, framing, and possible manipulation patterns.</p>
+        </div>
+
+        <div class="analyzer-panel">
+          <textarea
+            id="claimInput"
+            maxlength="2000"
+            placeholder="Paste a news article, headline, tweet, or WhatsApp forward..."
+          ></textarea>
+
+          <div class="analyzer-meta">
+            <span id="charCount">0 / 2000</span>
+            <button id="analyzeBtn" class="btn btn-primary" type="button">Analyze Claim</button>
+          </div>
+
+          <!-- Empty result container for future backend integration -->
+          <div class="result-container" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features section -->
+    <section id="features" class="section features-section">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow"><i class="fa-solid fa-bolt"></i> Features</span>
+          <h2>Built for sharp, credible analysis.</h2>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <h3>Truth Analysis</h3>
+            <p>Breaks down claims into verifiable pieces and highlights what needs evidence.</p>
+          </article>
+
+          <article class="feature-card">
+            <i class="fa-solid fa-filter-circle-dollar"></i>
+            <h3>Bias Detection</h3>
+            <p>Identifies loaded language, framing tricks, and emotional manipulation signals.</p>
+          </article>
+
+          <article class="feature-card">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Confidence Score</h3>
+            <p>Shows how strongly the content leans toward reliable, questionable, or misleading.</p>
+          </article>
+
+          <article class="feature-card">
+            <i class="fa-solid fa-link"></i>
+            <h3>Verification Advice</h3>
+            <p>Suggests next checks, source types, and practical ways to confirm the claim.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works section -->
+    <section id="how-it-works" class="section steps-section">
+      <div class="container">
+        <div class="section-heading center">
+          <span class="eyebrow"><i class="fa-solid fa-route"></i> How It Works</span>
+          <h2>Simple workflow. Serious output.</h2>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span>01</span>
+            <h3>Paste Content</h3>
+          </div>
+
+          <div class="step-card">
+            <span>02</span>
+            <h3>AI Analysis</h3>
+          </div>
+
+          <div class="step-card">
+            <span>03</span>
+            <h3>Review Results</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand-block">
+      <a class="footer-brand" href="#home">MayaBhed</a>
+      <p class="footer-description">
+        MayaBhed is a modern misinformation analysis platform designed to help users critically evaluate headlines, viral claims, and digital content through evidence-driven insights.
+      </p>
+    </div>
+
+    <div class="footer-links-block">
+      <h3 class="footer-heading">Quick Links</h3>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="https://github.com/swatisingh1701/MayaBhed" target="_blank" rel="noreferrer">GitHub Repository</a>
+      </nav>
+    </div>
+
+    <div class="footer-quote-block">
+      <h3 class="footer-heading">Philosophy</h3>
+      <p class="footer-quote">"Truth is not what appears. Truth is what endures examination."</p>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 MayaBhed. Built with curiosity, critical thinking, and a pursuit of truth.</p>
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
