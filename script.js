@@ -56,6 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
   });
 
+  analyzeBtn.addEventListener('click', analyzeClaim);
+
   /* Highlight active navigation link while scrolling */
   const setActiveLink = (id) => {
     if (!id || activeSectionId === id) return;
@@ -126,6 +128,56 @@ document.addEventListener('DOMContentLoaded', () => {
   function hideResults() {
     resultContainer.hidden = true;
   }
+
+  async function analyzeClaim() {
+
+  const text = textarea.value.trim();
+
+  if (!text) {
+    alert("Please enter some content.");
+    return;
+  }
+
+  showResults();
+
+  resultContainer.innerHTML = `
+    <div class="loading-card">
+      <h3>Analyzing...</h3>
+      <p>MayaBhed is evaluating the claim.</p>
+    </div>
+  `;
+
+  try {
+
+    const response = await fetch('/api/analyze', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        text
+      })
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+
+    resultContainer.innerHTML = `
+      <pre>${JSON.stringify(data, null, 2)}</pre>
+    `;
+
+  } catch (error) {
+
+    console.error(error);
+
+    resultContainer.innerHTML = `
+      <div class="error-card">
+        Analysis Failed
+      </div>
+    `;
+  }
+}
 
   hideResults();
 
