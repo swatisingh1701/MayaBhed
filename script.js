@@ -140,30 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   showResults();
 
-  resultContainer.innerHTML = `
-<div class="result-card">
-
-<h2>${result.classification}</h2>
-
-<p><strong>Confidence:</strong> ${result.confidence}%</p>
-
-<h3>Summary</h3>
-<p>${result.summary}</p>
-
-<h3>Reasons</h3>
-
-<ul>
-${result.reasons.map(r=>`<li>${r}</li>`).join("")}
-</ul>
-
-<h3>Verification Advice</h3>
-
-<ul>
-${result.verificationAdvice.map(v=>`<li>${v}</li>`).join("")}
-</ul>
-
-</div>
-`;
+  
 
   try {
 
@@ -179,15 +156,36 @@ ${result.verificationAdvice.map(v=>`<li>${v}</li>`).join("")}
 
     const result = await response.json();
 
-    console.log(result);;
+    console.log(result);
 
-    resultContainer.innerHTML=`
-      <h2>${result.classification}</h2>
+    resultContainer.innerHTML = `
+    <div class="result-card">
 
-      <p>${result.summary}</p>
-      `;
+    <h2>${result.classification}</h2>
 
-  } catch (error) {
+    <p><strong>Confidence:</strong> ${result.confidence}%</p>
+
+    <h3>Summary</h3>
+
+    <p>${result.summary}</p>
+
+    <h3>Reasons</h3>
+
+    <ul>
+    ${result.reasons.map(r => `<li>${r}</li>`).join("")}
+    </ul>
+
+    <h3>Verification Advice</h3>
+
+    <ul>
+    ${result.verificationAdvice.map(v => `<li>${v}</li>`).join("")}
+    </ul>
+
+    </div>
+    `;
+
+  }
+   catch (error) {
 
     console.error(error);
 

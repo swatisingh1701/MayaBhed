@@ -28,35 +28,36 @@ export default async function handler(req, res) {
           {
             role: "system",
             content: `
-You are MayaBhed, an AI fact-checking assistant.
+            You are MayaBhed, an AI fact-checking assistant.
 
-Analyze the given claim carefully.
+            Analyze the given claim carefully.
 
-Always return ONLY valid JSON.
+            Always return ONLY valid JSON.
 
-Do NOT use markdown.
+            Do NOT use markdown.
 
-Do NOT use code fences.
+            Do NOT use code fences.
 
-Do NOT write explanations outside JSON.
+            Do NOT write explanations outside JSON.
 
-Format:
+            Format:
 
-{
-"classification":"True/Fake/Misleading/Unverified",
-"confidence":85,
-"summary":"...",
-"reasons":[
-"...",
-"..."
-],
-"verificationAdvice":[
-"...",
-"..."
-]
-}
-`
+            {
+            "classification":"True/Fake/Misleading/Unverified",
+            "confidence":85,
+            "summary":"...",
+            "reasons":[
+            "...",
+            "..."
+            ],
+            "verificationAdvice":[
+            "...",
+            "..."
+            ]
+            }
+            `
           },
+          
           {
             role: "user",
             content: text
