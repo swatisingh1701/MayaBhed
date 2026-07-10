@@ -141,11 +141,29 @@ document.addEventListener('DOMContentLoaded', () => {
   showResults();
 
   resultContainer.innerHTML = `
-    <div class="loading-card">
-      <h3>Analyzing...</h3>
-      <p>MayaBhed is evaluating the claim.</p>
-    </div>
-  `;
+<div class="result-card">
+
+<h2>${result.classification}</h2>
+
+<p><strong>Confidence:</strong> ${result.confidence}%</p>
+
+<h3>Summary</h3>
+<p>${result.summary}</p>
+
+<h3>Reasons</h3>
+
+<ul>
+${result.reasons.map(r=>`<li>${r}</li>`).join("")}
+</ul>
+
+<h3>Verification Advice</h3>
+
+<ul>
+${result.verificationAdvice.map(v=>`<li>${v}</li>`).join("")}
+</ul>
+
+</div>
+`;
 
   try {
 
@@ -159,11 +177,9 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     });
 
-    const data = await response.json();
+    const result = await response.json();
 
-    const result = JSON.parse(data.result);
-
-    console.log(result);
+    console.log(result);;
 
     resultContainer.innerHTML=`
       <h2>${result.classification}</h2>

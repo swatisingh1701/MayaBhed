@@ -62,13 +62,15 @@ Format:
             content: text
           }
         ],
-        temperature: 0.3
+        temperature: 0.3, 
+        response_format: {type: "json_object"}
       });
 
-    return res.status(200).json({
-      success: true,
-      result: completion.choices[0].message.content
-    });
+    const raw = completion.choices[0].message.content;
+
+    const parsed = JSON.parse(raw);
+
+    return res.status(200).json(parsed);
 
   } catch (error) {
 
