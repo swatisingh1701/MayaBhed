@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultContainer = document.querySelector('.result-container');
   const featureCards = [...document.querySelectorAll('.feature-card')];
 
-  const MAX_CHARS = 5000;
+  const MAX_CHARS = 10000;
   let activeSectionId = '';
 
   /* Smooth scrolling for in-page anchors */
@@ -161,11 +161,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const data = await response.json();
 
-    console.log(data);
+    const result = JSON.parse(data.result);
 
-    resultContainer.innerHTML = `
-      <pre>${JSON.stringify(data, null, 2)}</pre>
-    `;
+    console.log(result);
+
+    resultContainer.innerHTML=`
+      <h2>${result.classification}</h2>
+
+      <p>${result.summary}</p>
+      `;
 
   } catch (error) {
 
